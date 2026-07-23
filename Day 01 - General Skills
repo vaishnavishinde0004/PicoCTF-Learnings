@@ -1,0 +1,157 @@
+# Day 01 - PicoCTF General Skills
+
+## Overview
+
+Today, I started my PicoCTF journey by learning the fundamentals of Linux, networking, cryptography, and number systems. These concepts are essential for solving beginner CTF challenges and building a strong cybersecurity foundation.
+
+---
+
+## Topics Covered
+
+- Basic Linux Commands
+- SSH (Secure Shell)
+- Netcat (nc)
+- Cryptography Basics
+- ROT13
+- Number Systems (Binary, Decimal, Hexadecimal)
+- Base64 Encoding
+
+---
+
+## Linux Commands
+
+| Command | Purpose |
+|---------|---------|
+| `pwd` | Display the current working directory. |
+| `ls` | List files and directories. |
+| `cd` | Change the current directory. |
+| `mkdir` | Create a new directory. |
+| `touch` | Create an empty file. |
+| `cat` | Display the contents of a file. |
+| `cp` | Copy files or directories. |
+| `mv` | Move or rename files. |
+| `rm` | Remove files or directories. |
+| `clear` | Clear the terminal screen. |
+
+---
+
+## SSH (Secure Shell)
+
+SSH is a secure protocol used to remotely access another computer over a network.
+
+- Default Port: **22**
+- Encrypts communication between client and server.
+- Used for secure remote administration.
+
+Example:
+```bash
+ssh username@hostname
+```
+
+---
+
+## Netcat (nc)
+
+Netcat is a command-line networking utility used to connect to or listen on TCP/UDP ports.
+
+Common uses:
+- Connect to remote services.
+- Test network connectivity.
+- Interact with CTF challenge servers.
+
+Example:
+```bash
+nc hostname port
+```
+
+---
+
+## Cryptography
+
+Cryptography is the practice of protecting information by converting plaintext into ciphertext so that only authorized users can access it.
+
+Key concepts learned:
+- Encryption
+- Decryption
+- Plaintext
+- Ciphertext
+- Hashing
+
+---
+
+## ROT13
+
+ROT13 is a substitution cipher that shifts each letter by 13 positions.
+
+Example:
+
+```
+HELLO → URYYB
+```
+
+Applying ROT13 twice returns the original text.
+
+---
+
+## Number Systems
+
+### Decimal (Base 10)
+
+Uses digits:
+```
+0–9
+```
+
+### Binary (Base 2)
+
+Uses digits:
+```
+0 and 1
+```
+
+Example:
+```
+42₁₀ = 101010₂
+```
+
+### Hexadecimal (Base 16)
+
+Uses digits:
+```
+0–9, A–F
+```
+
+Example:
+```
+0x3D = 61
+```
+
+---
+
+## Base64
+
+Base64 is an encoding scheme that converts binary data into readable ASCII characters. It is **encoding**, not encryption.
+
+Example:
+
+Encoded:
+```
+bDNhcm5fdGgzX3IwcDM1
+```
+
+Decoded:
+```
+l3arn_th3_r0p35
+```
+
+---
+
+## Key Takeaways
+
+- Learned essential Linux commands for navigating the terminal.
+- Understood how SSH provides secure remote access.
+- Learned how Netcat is used to communicate with network services.
+- Understood the basics of cryptography and ROT13.
+- Practiced converting between hexadecimal, decimal, and binary.
+- Learned to identify and decode Base64-encoded strings.
+
