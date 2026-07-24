@@ -1,0 +1,222 @@
+# Day 02 – PicoCTF Learnings
+
+## Linux Commands
+
+### `cat`
+
+Displays the contents of a file.
+
+bash
+cat file.txt
+
+### `grep`
+
+Searches for specific text or patterns in a file.
+
+bash
+grep "picoCTF" file.txt
+
+### `grep -r`
+
+Recursively searches through all files and subdirectories.
+
+bash
+grep -r "picoCTF" .
+
+
+### `strings`
+
+Extracts printable ASCII strings from binary files.
+
+```bash
+strings binary_file
+```
+
+### `unzip`
+
+Extracts the contents of a ZIP archive.
+
+```bash
+unzip archive.zip
+```
+
+### `ls`
+
+Lists files and directories in the current location.
+
+```bash
+ls
+```
+
+### `cd`
+
+Changes the current working directory.
+
+```bash
+cd Downloads
+```
+
+### `nc` (Netcat)
+
+Connects to remote services, transfers data, and is commonly used in CTF challenges.
+
+```bash
+nc saturn.picoctf.net 63608
+```
+
+### `echo -n`
+
+Prints text without adding a newline character.
+
+```bash
+echo -n "Hello"
+```
+
+### `wc -c`
+
+Counts the number of characters/bytes.
+
+```bash
+echo -n "Hello" | wc -c
+```
+
+---
+
+# Cryptography
+
+### Hexadecimal (Base 16)
+
+A numbering system using digits `0-9` and `A-F`.
+Example:
+
+```
+0x3D = 61 (Decimal)
+```
+
+### Binary (Base 2)
+
+A numbering system using only `0` and `1`.
+Example:
+
+```
+42 = 101010
+```
+
+### ASCII
+
+A standard character encoding where every character has a numeric value.
+Example:
+
+```
+65 → A
+97 → a
+```
+
+### `chr()`
+
+Python function that converts an ASCII value into a character.
+
+```python
+chr(65)
+# Output: A
+```
+
+### Base64
+
+An encoding scheme used to represent binary data as readable text.
+It is **encoding**, not encryption.
+
+### ROT13
+
+A Caesar cipher that rotates each alphabet character by 13 positions.
+Example:
+
+```
+HELLO → URYYB
+```
+
+### MD5
+
+A one-way hashing algorithm that produces a 32-character hexadecimal hash.
+Hashes **cannot be decoded**, only compared.
+
+---
+
+# Reverse Engineering
+
+### Static Analysis
+
+Reading and understanding source code without executing the program.
+
+### Dynamic Analysis
+
+Running the program to observe its behavior.
+
+### Hash Comparison
+
+Instead of guessing passwords manually, compute the hash of each candidate and compare it with the stored hash.
+
+### Dictionary Attack
+
+Testing passwords from a wordlist automatically until a match is found.
+
+---
+
+# File Analysis
+
+### SVG
+
+Scalable Vector Graphics files are XML-based text files that may contain hidden information such as:
+
+* Hidden text
+* XML comments
+* Metadata
+* Tiny or white-colored text
+
+---
+
+# Binary Exploitation
+
+### Buffer Overflow
+
+Occurs when more data is written into a buffer than it can hold, causing adjacent memory to be overwritten.
+
+### `gets()`
+
+Reads user input without checking its length.
+**Unsafe** because it can easily cause buffer overflows.
+
+### `strcpy()`
+
+Copies one string into another without checking the destination buffer size.
+Can also lead to buffer overflows.
+
+### `SIGSEGV`
+
+A segmentation fault signal generated when a program accesses invalid memory.
+In many beginner CTF challenges, this signal is intentionally handled to reveal the flag.
+
+---
+
+# Challenges Solved
+
+* Linux command practice (`cat`, `grep`, `strings`, `unzip`)
+* Base64 and ROT13 decoding
+* Hexadecimal ↔ Decimal conversions
+* Binary number conversion
+* Password recovery from Python and Java source code
+* MD5 hash comparison using Python
+* Hidden flag extraction from SVG files
+* Recursive file searching using `grep -r`
+* Introduction to stack-based buffer overflows
+
+---
+
+# Key Takeaways
+
+* Read source code before attempting brute force.
+* Automate repetitive tasks using Python loops.
+* Use `grep -r` to search large directories efficiently.
+* SVG files should be inspected as XML, not just viewed as images.
+* Understand the difference between **encoding**, **encryption**, and **hashing**.
+* Always be cautious of unsafe C functions like `gets()` and `strcpy()`.
