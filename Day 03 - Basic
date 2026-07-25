@@ -1,0 +1,122 @@
+Linux Commands
+`find` - Searches for files and directories recursively.
+Syntax: find <starting_directory> -name "<filename>"
+Example: find . -name "uber-secret.txt"
+Used to locate hidden files inside nested directories.
+
+`cd` - Changes the current working directory.
+cd / - Moves to the root directory.
+cd ~ - Moves to the home directory.
+
+`ls -l` - Lists files with detailed information such as permissions, owner, file size, and modification date.
+`ls -la`- Lists all files, including hidden files (those beginning with `.`).
+------------------------------------------------------------------------------------------------------------------------
+Pipes (`|`)
+Passes the output of one command as the input to another command.
+Syntax: command1 | command2
+Example: nc hostname port | grep picoCTF
+Used to search live output from a remote server without saving it to a file.
+-------------------------------------------------------------------------------------------------------------------------
+
+`grep` - Searches for text matching a specific pattern.
+grep "picoCTF" file.txt
+Combined with pipes: strings binary | grep picoCTF
+--------------------------------------------------------------------------------------------------------------------------
+
+`strings` - Extracts readable ASCII strings from binary executables.
+strings static - Useful for quickly identifying embedded flags, messages, library names, and function names.
+-------------------------------------------------------------------------------------------------------------------------
+
+`chmod +x` - Adds execute permission to a file.
+chmod +x script.sh - Allows shell scripts or executables to be run directly.
+-------------------------------------------------------------------------------------------------------------------------
+
+`objdump` - Disassembles executable binaries into assembly instructions.
+objdump -Dj .text binary - Useful during reverse engineering to inspect program logic.
+-------------------------------------------------------------------------------------------------------------------------
+
+Reverse Engineering
+Static Analysis - Examining source code or executable files without running them.
+--------------------------------------------------------------------------------------------------------------------------
+
+Disassembly - Converting machine code into assembly language using tools like `objdump`.
+Binary Executables - Compiled programs that contain machine instructions. Since they are not plain text, commands like `strings` are useful for extracting readable information.
+--------------------------------------------------------------------------------------------------------------------------
+
+Binary Exploitation
+Buffer Overflow - Occurs when input exceeds the size of a buffer and overwrites adjacent memory.
+Example:
+```c
+char buffer[16];
+strcpy(buffer, input);
+```
+If `input` is longer than 16 bytes, memory corruption occurs.
+----------------------------------------------------------------------------------------------------------
+
+Unsafe Functions
+`gets()` - Reads unlimited user input without checking buffer size.
+```c
+gets(buffer);
+```
+Highly insecure and removed from modern C standards.
+--------------------------------------------------------------------------------------------------------
+
+`strcpy()` - Copies strings without verifying the destination buffer size.
+
+```c
+strcpy(destination, source);
+```
+Can cause stack-based buffer overflows.
+------------------------------------------------------------------------------------------------------
+
+`SIGSEGV` - A segmentation fault signal generated when a program accesses invalid memory.
+Some CTF binaries intentionally register a signal handler to print the flag when a segmentation fault occurs.
+--------------------------------------------------------------------------------------------------------------
+
+Python Debugging
+Indentation - Python uses indentation to define code blocks.
+Correct:
+```python
+if True:
+    print("Hello")
+```
+Incorrect indentation results in an `IndentationError`.
+--------------------------------------------------------------------------------------------
+
+Assignment (`=`) vs Comparison (`==`)
+Assignment:
+```python
+x = 10
+```
+
+Comparison:
+```python
+if x == 10:
+    print("Correct")
+```
+Using `=` inside an `if` statement causes a syntax error.
+------------------------------------------------------------------------------------------------------
+
+CTF Challenges Solved
+* Navigated Linux directories using `cd`, `pwd`, and `ls`.
+* Located hidden files using the `find` command.
+* Combined commands using Linux pipes (`|`).
+* Used `grep` to filter command output.
+* Inspected executable binaries with `strings`.
+* Learned the basics of disassembly using `objdump`.
+* Solved beginner reverse engineering challenges through static analysis.
+* Fixed Python syntax errors involving indentation and comparison operators.
+* Understood how buffer overflows occur because of unsafe C functions like `gets()` and `strcpy()`.
+* Learned the purpose of segmentation faults (`SIGSEGV`) in beginner binary exploitation challenges.
+---------------------------------------------------------------------------------------------------------------------------
+
+Key Takeaways
+
+* Read source code before attempting brute force.
+* Use `find` to locate files quickly in large directory structures.
+* Combine Linux commands with pipes to process data efficiently.
+* Inspect binaries using `strings` before attempting deeper reverse engineering.
+* Understand the difference between assignment (`=`) and comparison (`==`) in Python.
+* Python relies on indentation to define code blocks.
+* Buffer overflows are commonly caused by writing beyond the allocated memory of a buffer.
+* Practice reading compiler-generated code and debugging syntax errors to build a strong reverse engineering foundation.
