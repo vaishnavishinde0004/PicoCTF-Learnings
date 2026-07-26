@@ -1,0 +1,68 @@
+# Cryptography Concepts
+
+1) Base64:
+* An encoding scheme, not encryption.
+* Converts binary data into readable ASCII text.
+* Commonly used to transfer data over the internet.
+
+2) Caesar Cipher:
+* A substitution cipher where each letter is shifted by a fixed number.
+* Encryption:
+
+  * A → D (Shift = 3)
+* Decryption:
+
+  * D → A (Shift = -3)
+* Easy to break by trying all 26 possible shifts.
+
+3) ROT13:
+* A Caesar cipher with a shift of 13.
+* Applying ROT13 twice returns the original text.
+* Commonly used to hide spoilers or simple text.
+
+4) XOR Cipher:
+* Encrypts data using the XOR (^) operation.
+* Uses the same key for encryption and decryption.
+* If the key is reused, it becomes vulnerable to attacks.
+
+5) MD5:
+* Produces a 128-bit hash.
+* One-way hashing algorithm.
+* Used for integrity checks but no longer secure for passwords due to collisions.
+
+6) SHA-1:
+* Produces a 160-bit hash.
+* More secure than MD5 but considered broken because collisions can be generated.
+
+7) SHA-256:
+* Produces a 256-bit hash.
+* Part of the SHA-2 family.
+* Widely used for password hashing, digital signatures, and blockchain.
+
+8) RSA:
+* An asymmetric encryption algorithm.
+* Uses:
+  * Public Key: (n, e)
+  * Private Key: (d)
+* Security depends on the difficulty of factoring large numbers.
+* Small values of `N` make RSA vulnerable.
+
+9) Binary:
+* Represents data using only 0 and 1.
+* Every ASCII character is stored as 8 bits.
+
+10) Hexadecimal:
+* Base-16 numbering system.
+* Uses digits 0–9 and A–F.
+* Two hexadecimal digits represent one byte.
+-------------------------------------------------------------------------
+
+## Challenges Completed:
+
+* Decoded Base64-encoded strings.
+* Solved Caesar Cipher challenges.
+* Understood ROT13 and character shifting.
+* Explored custom Caesar ciphers using a 16-character alphabet.
+* Learned the difference between encoding, encryption, and hashing.
+* Studied RSA encryption and why a small modulus (`N`) is insecure.
+* Worked with hexadecimal, binary, and ASCII conversions.
