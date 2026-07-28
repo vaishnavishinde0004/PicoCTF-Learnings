@@ -1,0 +1,13 @@
+Today I solved multiple VaultDoor challenges and learned different reverse engineering techniques by analysing Java source code instead of guessing the password.
+
+Key learnings:
+
+* Used `charAt()` indexing to reconstruct hidden passwords.
+* Understood how loops and array indexing can rearrange characters and how to reverse the mapping.
+* Learned to decode ASCII values stored in decimal, hexadecimal, octal, Base64, and URL encoding.
+* Explored XOR encryption and learned that XOR is reversible using the same key.
+* Studied bit shifting (`<<` and `>>`) to pack and unpack characters into 32-bit integers.
+* Learned how bit swapping works and how reversing the order of swaps restores the original data.
+* Improved my ability to read Java code and identify the logic used to validate user input.
+
+Today's biggest takeaway: Reverse engineering is about understanding the program's logic and reversing each transformation step by step rather than trying to guess the flag.
