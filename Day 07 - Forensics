@@ -1,0 +1,130 @@
+Today I started learning the basics of **Digital Forensics** through picoCTF challenges. The main focus was understanding how information can be hidden inside files and how to investigate files using Linux tools.
+
+1. File Identification: The first step in a forensic investigation is to identify what a file actually contains instead of trusting its extension.
+For example:
+file confidential.pdf
+file img.jpg
+The file extension (`.pdf`, `.jpg`, `.bin`, etc.) does not always tell us what is actually inside the file.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Metadata Analysis with ExifTool: I learned that files can contain metadata such as:
+* Author
+* Creator
+* Producer
+* Creation date
+* Modification date
+* Image dimensions
+* Comments
+* Camera information
+
+The main command I learned:
+For example:
+exiftool confidential.pdf
+
+In one challenge, the PDF looked completely normal, but the **Author** field contained a Base64-encoded string.
+This taught me that important information may be hidden in metadata rather than the visible content of a file.
+----------------------------------------------------------------------------------------------------------------------------------------
+
+3. JPEG Metadata: I also investigated JPEG files using:
+exiftool img.jpg
+One challenge contained a suspicious value in the **Comment** field.
+
+Example:
+Comment : c3RlZ2hpZGU6Y0VGNmVuZHZjbVE9
+This looked like Base64, so I decoded it.
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Base64 Encoding: I learned how to recognize and decode Base64 strings.
+The basic command is:
+echo 'BASE64_STRING' | base64 -d
+Sometimes decoding one Base64 string produces another encoded value.
+For example:
+Base64
+   ↓
+steghide:<another Base64 string>
+   ↓
+decode again
+   ↓
+password/clue
+
+The important lesson was: Don't stop after decoding once. Always inspect the output and determine whether it contains another clue or encoding.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. Steganography: I was introduced to **Steganography**, which is the technique of hiding information inside another file, such as an image.
+One of the tools I learned about is:
+steghide
+Useful commands:
+steghide info image.jpg
+
+This checks whether hidden data may be embedded in the image. To extract embedded data:
+steghide extract -sf image.jpg
+If a password is required:
+steghide extract -sf image.jpg -p 'password'
+This showed me that an image can look completely normal while containing additional hidden files or information.
+---------------------------------------------------------------------------------------------------------------------------------
+
+6. Strings: I also learned to search files for readable text using:
+strings filename
+To search specifically for flags:
+strings filename | grep -i "pico"
+
+or:
+strings filename | grep -Ei "flag|ctf"
+This is useful when a file contains hidden readable strings among binary data.
+--------------------------------------------------------------------------------------------------------------------------------
+
+7. Hexadecimal Inspection: Another useful forensic technique is examining the raw bytes of a file:
+xxd filename
+
+or:
+
+xxd filename | head
+This helps identify **file signatures (magic bytes)** and understand what type of data is actually stored inside a file.
+------------------------------------------------------------------------------------------------------------------------------------
+
+8. Basic Forensics Workflow: I learned that instead of randomly trying commands, I should investigate files systematically:
+File
+ │
+ ├── file
+ │
+ ├── exiftool
+ │
+ ├── strings
+ │
+ ├── xxd
+ │
+ └── Identify suspicious data
+          │
+          ├── Base64 → base64 -d
+          ├── Hex → decode
+          ├── Image → steganography analysis
+          ├── Archive → extract
+          └── Metadata → investigate
+
+Commands I practiced
+
+file filename
+exiftool filename
+strings filename
+xxd filename
+base64 -d
+steghide info image.jpg
+steghide extract -sf image.jpg
+----------------------------------------------------------------------------------------------------------------------------------
+
+Key Takeaways
+
+* Never trust a file extension blindly.
+* Always inspect file metadata.
+* `exiftool` is extremely useful for forensic investigation.
+* Suspicious strings may be encoded rather than plain text.
+* Base64 can sometimes be layered multiple times.
+* Images and PDFs can contain hidden information.
+* Steganography can hide files inside seemingly normal images.
+* `strings` and `xxd` are useful for inspecting unknown files.
+* In CTFs, the visible content is often a distraction.
+
+CTF Lesson
+
+The biggest lesson from today's challenges:
+Don't just look at what a file shows you. Investigate what the file actually contains. Digital forensics is about finding the information that isn't immediately visible.
