@@ -1,0 +1,70 @@
+What is Blockchain?
+
+Blockchain is a distributed ledger that stores records in blocks linked together using cryptographic hashes. Once data is added and confirmed, altering it becomes extremely difficult because every block depends on the previous one.
+
+Blocks and the Chain
+
+Each block typically contains:
+
+Transaction data
+Timestamp
+Current block hash
+Previous block's hash
+
+This structure ensures that modifying a block changes its hash, breaking the chain and making tampering easy to detect.
+
+Cryptographic Hashing
+
+Learned the purpose of cryptographic hash functions:
+
+Generate a fixed-length output from any input.
+Even a small change in input produces a completely different hash.
+Used to verify data integrity and securely link blocks together.
+Decentralization
+
+Unlike traditional databases controlled by a single organization, blockchain data is stored across multiple nodes. Every participant maintains a copy of the ledger, making the network more resilient and transparent.
+
+Consensus Mechanisms
+
+Studied the idea of consensus, which allows all nodes to agree on the current state of the blockchain. Common mechanisms include:
+
+Proof of Work (PoW)
+Proof of Stake (PoS)
+
+These mechanisms help prevent fraudulent transactions and double spending.
+
+Wallets and Transactions
+
+Learned that:
+
+A wallet stores public and private keys rather than actual cryptocurrency.
+Transactions are digitally signed using the sender's private key.
+Anyone can verify a transaction using the corresponding public key.
+Smart Contracts
+
+Got introduced to smart contracts:
+
+Programs stored on the blockchain.
+Execute automatically when predefined conditions are met.
+Commonly used on platforms like Ethereum for decentralized applications (dApps).
+Blockchain in CTFs
+
+Blockchain challenges often involve:
+
+Analyzing transaction history
+Understanding wallet addresses
+Decoding hashes or encoded transaction data
+Investigating smart contract logic
+Finding vulnerabilities in contract implementations
+Key Skills Gained
+Understanding blockchain architecture
+Learning how blocks are linked using hashes
+Basics of cryptographic hashing
+Decentralized network concepts
+Introduction to consensus mechanisms
+Wallets, transactions, and digital signatures
+Basics of smart contracts
+Applying blockchain concepts in CTF challenges
+What's Next?
+
+Today's learning gave me a solid foundation in blockchain concepts and helped me understand how blockchain technology is applied in cybersecurity and CTF challenges.
