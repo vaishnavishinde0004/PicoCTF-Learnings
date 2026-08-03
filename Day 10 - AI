@@ -1,0 +1,62 @@
+What is Artificial Intelligence?
+
+Artificial Intelligence is the field of computer science that enables machines to perform tasks that typically require human intelligence, such as recognizing patterns, making decisions, understanding language, and learning from data.
+
+AI vs Machine Learning
+
+Learned the difference between the two:
+
+Artificial Intelligence (AI): The broader concept of creating intelligent systems.
+Machine Learning (ML): A subset of AI where systems learn from data instead of being explicitly programmed.
+How AI Learns
+
+Understood the basic AI workflow:
+
+Collect data.
+Train a model using that data.
+Test the model on new data.
+Use the trained model to make predictions or decisions.
+Types of Machine Learning
+
+Studied the three major learning approaches:
+
+Supervised Learning – Learns from labeled data.
+Unsupervised Learning – Finds hidden patterns in unlabeled data.
+Reinforcement Learning – Learns by interacting with an environment using rewards and penalties.
+AI in Cybersecurity
+
+Learned how AI is applied in security:
+
+Malware detection
+Intrusion detection systems (IDS)
+Spam and phishing detection
+Behavioral analysis
+Threat intelligence
+Automated incident response
+AI in CTF Challenges
+
+AI-based CTF challenges may involve:
+
+Prompt engineering
+Identifying AI vulnerabilities
+Understanding how language models respond to inputs
+Extracting hidden information safely and ethically
+Working with AI-generated or AI-analyzed data
+AI Limitations
+
+Also learned that AI is not perfect:
+
+It can produce incorrect or misleading answers.
+Models depend heavily on the quality of training data.
+AI should assist human decision-making rather than completely replace it.
+Key Skills Gained
+Understanding AI fundamentals
+Difference between AI and Machine Learning
+AI learning process
+Types of machine learning
+AI applications in cybersecurity
+Introduction to AI-related CTF concepts
+Awareness of AI limitations and security concerns
+What's Next?
+
+Today's learning gave me a strong introduction to AI and helped me understand how artificial intelligence is increasingly being integrated into cybersecurity and modern CTF challenges.
